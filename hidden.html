@@ -2,6 +2,47 @@
 <html>
  <head>
      <title>Hidden</title>
+     <script> 
+        let correct=0;
+        let wrong=0;
+        
+        function processGuess (){
+            console.log("Getting form values")
+        
+            sword = document.getElementById("form1_age").value
+            gword = document.getElementById("form1_nick").value
+            out = document.getElementById("result")
+            if(sword==gword){
+                alert("Congratulations")
+                correct++
+                out.innerHTML="Correct: "+correct+" Wrong: "+wrong
+            }else{
+                alert("Sorry")
+                wrong++
+                out.innerHTML="Correct: "+correct+" Wrong: "+wrong
+            }  
+        }
+        let currentImage=0;
+        function rotateImage(){
+            image= document.getElementById("image")
+            switch(currentImage)
+                {
+                case 0:
+                    currentImage=1;
+                    image.src= "pics/daylilly.jpg"
+                    break;
+                case 1:
+                    currentImage=2;
+                    image.src= "pics/UMBRELLA PINE.jpg"
+                    break;
+                case 2:
+                    currentImage=0;
+                    image.src= "pics/ageratum.jpg"
+                break;
+                default: break;
+                }
+        }
+        </script>
  </head>
 <body>
 <h1>Hidden things by Goutham Kumar Adunuri</h1>
@@ -17,31 +58,12 @@
 
     <input type="button" onclick="processGuess()" value="Check the guess. ">
 </form>
-
-
 <p id="result">This text will be replaced </p>
 
-<script> 
-let correct=0;
-let wrong=0;
-function processGuess (){
-    console.log("Getting form values")
+<div class="container">
+<img id="image" src="pics/ageratum.jpg" alt="ageratum" height="200px" width="200px" onclick="rotateImage()">
 
-    sword = document.getElementById("form1_age").value
-    gword = document.getElementById("form1_nick").value
-    out = document.getElementById("result")
-    if(sword==gword){
-        alert("Congratulations")
-        correct++
-        out.innerHTML="Correct: "+correct+" Wrong: "+wrong
-    }else{
-        alert("Sorry")
-        wrong++
-        out.innerHTML="Correct: "+correct+" Wrong: "+wrong
-    }
-    
-}
-</script>
+</div>
 
 </body>
 </html> 
