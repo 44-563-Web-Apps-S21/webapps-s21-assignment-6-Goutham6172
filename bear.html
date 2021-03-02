@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+ <head>
+     <title>
+         Bear
+     </title>
+ </head>
+<body>
+
+<h2>Goutham builds a bear</h2>
+
+<form>
+    <label for="form1_hat">hat</label>
+    <input type ="checkbox" id="form1_hat" name="form1" value="hat"> <br>
+
+    <label for="form1_scarf">scarf</label>
+    <input type ="checkbox" id="form1_scarf" name="form1" value="scarf"> <br>
+    
+    <label for="form1_shirt">shirt</label>
+    <input type ="checkbox" id="form1_shirt" name="form1" value="shirt"> <br>
+
+    <input type="button" onclick="startbear()" value="Start a bear">
+</form>
+
+
+<p id="result">This text will be replaced </p>
+
+<script> 
+let my_bear={}
+function startbear(){
+    my_bear={hat:false,scarf:false,shirt:false}
+    if(document.getElementById("form1_hat").checked)
+        my_bear.hat=true
+    if(document.getElementById("form1_scarf").checked)
+        my_bear.scarf=true
+    if(document.getElementById("form1_shirt").checked)
+        my_bear.shirt=true
+    document.getElementById("result").innerHTML=my_bear.hat+" "+my_bear.scarf+" "+my_bear.shirt
+}
+</script>
+
+</body>
+</html> 
