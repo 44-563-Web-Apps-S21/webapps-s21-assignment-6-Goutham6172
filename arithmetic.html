@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+ <head>
+     <title>Compute</title>
+ </head>
+<body>
+
+<h2>Goutham computes.</h2>
+
+<form>
+    <label for="form1_num1">Enter a number </label>
+    <input type ="number" id="form1_num1" name="form1_num1" value=10> <br>
+
+    <label for="form1_num2">Enter a number </label>
+    <input type ="number" id="form1_num2" name="form1_num2" value=2> <br>
+
+    <input type="button" onclick="permutations()" value="Compute">
+</form>
+
+
+<p id="result">This text will be replaced </p>
+
+<script> 
+function permutations(){
+    let num1=document.getElementById("form1_num1").value
+    let num2=document.getElementById("form1_num2").value
+    let product=1
+    let abc =1
+    for(i=num1; i>=(num1-num2+1);i--){
+        product=product*i
+    }
+    document.getElementById("result").innerHTML=num1+" permute "+num2+" should be "+product
+
+}
+
+function processRadio(){
+    let num3=parseInt(document.getElementById("form1_num1").value)
+    let num4=parseInt(document.getElementById("form1_num2").value)
+    if(document.getElementById("comp_plus").checked)
+        document.getElementById("result2").innerHTML=num3+num4
+    else if(document.getElementById("comp_minus").checked)
+        document.getElementById("result2").innerHTML=num3-num4
+    else if(document.getElementById("comp_times").checked)
+        document.getElementById("result2").innerHTML=num3*num4
+    else if(document.getElementById("comp_divide").checked)
+        document.getElementById("result2").innerHTML=num3/num4
+
+}
+</script>
+
+<form >
+    <input type="radio" onclick="processRadio()" id="comp_plus" name="comp" value="plus">
+    <label for="comp_plus">+</label></br>
+  
+    <input type="radio" onclick="processRadio()"  id="comp_minus" name="comp" value="minus">
+    <label for="comp_minus">-</label></br>
+  
+    <input type="radio" onclick="processRadio()"  id="comp_times" name="comp" value="times">
+    <label for="comp_times">*</label></br>
+
+    <input type="radio" onclick="processRadio()"  id="comp_divide" name="comp" value="divide">
+    <label for="comp_divide">/</label></br>
+
+  </form>
+  <p id="result2">This text will be replaced </p>
+
+</body>
+</html> 
