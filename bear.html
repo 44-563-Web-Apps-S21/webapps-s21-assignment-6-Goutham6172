@@ -28,16 +28,39 @@
 <script> 
 let my_bear={}
 function startbear(){
-    my_bear={hat:false,scarf:false,shirt:false}
+    //my_bear={hat:false,scarf:false,shirt:false}
     if(document.getElementById("form1_hat").checked)
-        my_bear.hat=true
+        my_bear[hat]=true
+    else
+        my_bear[hat]=false
     if(document.getElementById("form1_scarf").checked)
-        my_bear.scarf=true
+        my_bear[scarf]=true
+    else
+        my_bear[scarf]=false
     if(document.getElementById("form1_shirt").checked)
-        my_bear.shirt=true
-    document.getElementById("result").innerHTML=my_bear.hat+" "+my_bear.scarf+" "+my_bear.shirt
+        my_bear[shirt]=true
+    else
+        my_bear[shirt]=false
+    document.getElementById("result").innerHTML=Object.values(my_bear)
+}
+
+function updatebear(){
+    let prprt = document.getElementById("form1_property").value
+    let valu=document.getElementById("form1_value").value
+    my_bear[prprt]=valu
+    document.getElementById("result").innerHTML=Object.values(my_bear)
 }
 </script>
+
+<form>
+    <label for="form1_property">Enter a property</label>
+    <input type ="text" id="form1_property" name="form2" value="color"> <br>
+
+    <label for="form1_value">What is your Value </label>
+    <input type ="text" id="form1_value" name="form2" > <br>
+
+    <input type="button" onclick="updatebear()" value="Update the bear" name="form2">
+</form>
 
 </body>
 </html> 
