@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html>
  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  
      <title>
          Bear
      </title>
@@ -10,15 +17,18 @@
 <h2>Goutham builds a bear</h2>
 
 <form>
-    <label for="form1_hat">hat</label>
-    <input type ="checkbox" id="form1_hat" name="form1" value="hat"> <br>
-
-    <label for="form1_scarf">scarf</label>
-    <input type ="checkbox" id="form1_scarf" name="form1" value="scarf"> <br>
-    
-    <label for="form1_shirt">shirt</label>
-    <input type ="checkbox" id="form1_shirt" name="form1" value="shirt"> <br>
-
+    <div class="form-check">
+    <input class="form-check-input" type ="checkbox" id="form1_hat" name="form1" value="hat">
+    <label class="form-check-label" for="form1_hat">hat</label> <br>
+    </div>
+    <div class="form-check">
+    <input class="form-check-input" type ="checkbox" id="form1_scarf" name="form1" value="scarf">
+    <label class="form-check-label" for="form1_scarf">scarf</label> <br>
+    </div>
+    <div class="form-check">
+    <input class="form-check-input" type ="checkbox" id="form1_shirt" name="form1" value="shirt"> 
+    <label class="form-check-label" for="form1_shirt">shirt</label><br>
+    </div>
     <input type="button" onclick="startbear()" value="Start a bear">
 </form>
 
@@ -28,19 +38,19 @@
 <script> 
 let my_bear={}
 function startbear(){
-    //my_bear={hat:false,scarf:false,shirt:false}
+    my_bear={}
     if(document.getElementById("form1_hat").checked)
-        my_bear[hat]=true
+        my_bear["hat"]=true
     else
-        my_bear[hat]=false
+        my_bear["hat"]=false
     if(document.getElementById("form1_scarf").checked)
-        my_bear[scarf]=true
+        my_bear["scarf"]=true
     else
-        my_bear[scarf]=false
+        my_bear["scarf"]=false
     if(document.getElementById("form1_shirt").checked)
-        my_bear[shirt]=true
+        my_bear["shirt"]=true
     else
-        my_bear[shirt]=false
+        my_bear["shirt"]=false
     document.getElementById("result").innerHTML=Object.values(my_bear)
 }
 
@@ -53,12 +63,14 @@ function updatebear(){
 </script>
 
 <form>
-    <label for="form1_property">Enter a property</label>
+    <div class="form-group">
+    <label class="col-form-label" for="form1_property">Enter a property</label>
     <input type ="text" id="form1_property" name="form2" value="color"> <br>
-
-    <label for="form1_value">What is your Value </label>
+</div>
+<div class="form-group">
+    <label class="col-form-label" for="form1_value">What is your Value </label>
     <input type ="text" id="form1_value" name="form2" > <br>
-
+</div>
     <input type="button" onclick="updatebear()" value="Update the bear" name="form2">
 </form>
 
